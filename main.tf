@@ -16,11 +16,10 @@ resource "aws_security_group" "rds_sg" {
 }
 
 resource "aws_db_instance" "db_rds" {
-  count                       = length(var.database_name)
   engine                      = "mysql"
   engine_version              = "5.7.44"
   allocated_storage           = 10
-  instance_class              = "db.t2.micro"
+  instance_class              = "db.t3.micro"
   storage_type                = "gp2"
   identifier                  = var.username
   db_name                     = var.database_name
